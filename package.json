@@ -4,18 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run clean && eleventy --serve & npm run tailwind:dev",
-    "start:sass": "npm run clean && eleventy --serve & npm run sass:dev",
-    "build": "npm run clean && eleventy && npm run tailwind:build",
-    "build:sass": "npm run clean && eleventy && npm run sass:build",
-    "tailwind:dev": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/css/styles.css --watch",
-    "tailwind:build": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/css/styles.css --minify",
+    "start": "run-p clean eleventy:dev tailwind:dev sass:dev",
+    "build": "run-s clean eleventy:build tailwind:build sass:build",
+    "eleventy:dev": "eleventy --serve",
+    "eleventy:build": "eleventy",
+    "tailwind:dev": "npx tailwindcss -i ./src/css/tw-styles.css -o ./dist/css/tw-styles.css --watch",
+    "tailwind:build": "npx tailwindcss -i ./src/css/tw-styles.css -o ./dist/css/tw-styles.css --minify",
     "sass:dev": "sass --watch --embed-source-map src/scss:dist/css",
     "sass:build": "sass --no-source-map --style=compressed src/scss:dist/css",
     "clean": "rm -rf dist",
-    "lint": "npm run lint:html && npm run lint:css",
+    "lint": "run-s lint:html lint:css",
     "lint:html": "pa11y-ci -c .pa11yci.json './dist/**/*.html'",
-    "lint:css": "stylelint 'src/scss/**/*.scss' --color --formatter verbose"
+    "lint:css": "stylelint 'src/*css/**/*.*css' --color --formatter verbose"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.2",
+    "npm-run-all": "^4.1.5",
     "pa11y-ci": "^3.0.1",
     "stylelint": "^14.16.1",
     "stylelint-config-standard-scss": "^6.1.0"
