@@ -27,6 +27,9 @@
                 <p>This is the footer.</p>
             </footer>
         {% endblock %}
-        <script src="/index.js" type="module"></script>
+        <script src="/additive-math.js" type="module"></script>
+        <script src="/additive-math.legacy.js" nomodule></script>
+
+        {% block scripts%}{% endblock %}
     </body>
 </html>
