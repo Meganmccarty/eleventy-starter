@@ -1,0 +1,13 @@
+{
+    "root": true,
+    "extends": [
+        "eslint:recommended",
+        "airbnb-base"
+    ],
+    "rules": {
+        "import/prefer-default-export": 0,
+        "indent": ["error", 4],
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"]
+    }
+}
