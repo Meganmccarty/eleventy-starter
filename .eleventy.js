@@ -7,6 +7,8 @@ module.exports = function(eleventyConfig) {
         files: './dist/css/**/*.css'
     });
 
+    eleventyConfig.addPassthroughCopy({ 'src/public': '/' });
+
     return {
         dir: {
             input: 'src/pages',

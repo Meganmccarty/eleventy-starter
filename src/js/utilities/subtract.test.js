@@ -1,4 +1,4 @@
-import { subtract } from './subtract.js';
+import { subtract } from './subtract';
 
 describe('subtract', () => {
     it('subtracts two from two', () => {
