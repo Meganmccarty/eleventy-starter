@@ -3,24 +3,27 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
-        <!-- TODO: make these dynamic -->
-        <title>Eleventy Starter Template</title>
-        <meta name="description" content="This describes the content of the page." />
+
+        <title>{{ title }}</title>
+        <meta name="description" content="{{ description }}" />
 
         <!-- TODO: add link tags, other meta tags, open graph info, etc. -->
     </head>
     <body>
-        <!-- TODO: make the header and footer overrideable -->
-
-        <header>
-            <p>This is the header.</p>
-        </header>
+        {% block header %}
+            <header>
+                <p>This is the header.</p>
+            </header>
+        {% endblock %}
         <main>
-            {{ content | safe }}
+            {% block content %}
+                {{ content | safe }}
+            {% endblock %}
         </main>
-        <footer>
-            <p>This is the footer.</p>
-        </footer>
+        {% block footer %}
+            <footer>
+                <p>This is the footer.</p>
+            </footer>
+        {% endblock %}
     </body>
 </html>
