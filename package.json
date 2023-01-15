@@ -4,14 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run clean && eleventy --serve",
-    "build": "npm run clean && eleventy",
+    "start": "npm run clean && eleventy --serve & npm run tailwind:watch",
+    "build": "npm run clean && eleventy & npm run tailwind:minify",
+    "tailwind:watch": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/css/styles.css --watch",
+    "tailwind:mini": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/css/styles.css --minify",
     "clean": "rm -rf dist",
     "lint:html": "pa11y-ci -c .pa11yci.json './dist/**/*.html'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.2.4"
+  },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.2",
     "pa11y-ci": "^3.0.1"
