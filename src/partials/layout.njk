@@ -17,7 +17,7 @@
         <meta name="theme-color" content="#f8f8f8" />
 
         <link rel="stylesheet" href="/css/tw-styles.css" />
-        <link rel="stylesheet" href="/css/styles.css" />
+        {# <link rel="stylesheet" href="/css/styles.css" /> #}
     </head>
     <body class="tw-border-emerald-900 tw-border-4 tw-m-1">
         {% block header %}
@@ -39,5 +39,13 @@
         <script src="/additive-math.legacy.js" nomodule></script>
 
         {% block scripts%}{% endblock %}
+
+        <script type="module">
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
     </body>
 </html>

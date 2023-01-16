@@ -13,7 +13,7 @@ const EXCLUDED_URLS = [];
 // add any URLs that you want cached when the service worker is installed
 const PRE_CACHE_URLS = [
     '/',
-    '/css/styles.css',
+    // '/css/styles.css',
     '/css/tw-styles.css',
 ];
 

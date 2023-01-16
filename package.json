@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "run-p clean eleventy:dev tailwind:dev sass:dev js:dev js:dev:legacy",
-    "build": "run-s clean eleventy:build tailwind:build sass:build js:build js:build:legacy",
+    "start": "run-p eleventy:dev tailwind:dev sass:dev js:dev js:dev:legacy",
+    "build": "run-s eleventy:build tailwind:build sass:build js:build js:build:legacy",
     "eleventy:dev": "eleventy --serve",
     "eleventy:build": "eleventy",
     "tailwind:dev": "npx tailwindcss -i ./src/css/tw-styles.css -o ./dist/css/tw-styles.css --watch",
