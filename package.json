@@ -21,7 +21,9 @@
     "js:dev:legacy": "NODE_ENV=development webpack --progress -w",
     "js:build:legacy": "NODE_ENV=production webpack --progress",
     "lint:js": "eslint . --ext .js,.ts",
-    "test": "jest"
+    "test": "jest",
+    "update-deps": "ncu -u",
+    "postupdate-deps": "npm install"
   },
   "keywords": [],
   "author": "",
@@ -55,6 +57,7 @@
     "eslint-config-airbnb-typescript": "^17.0.0",
     "jest": "^29.3.1",
     "jest-environment-jsdom": "^29.3.1",
+    "npm-check-updates": "^16.6.2",
     "npm-run-all": "^4.1.5",
     "pa11y-ci": "^3.0.1",
     "stylelint": "^14.16.1",
