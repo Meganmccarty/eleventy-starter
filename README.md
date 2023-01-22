@@ -27,14 +27,33 @@ Once you have a local copy, build the Docker image by running:
 make run build
 ```
 
+Then, install the dependencies:
+```
+make run install
+```
+
 After that, get the Eleventy site up and running by executing:
 ```
 make run start
-``
+```
 
 Your site should be accessible at http://localhost:8080/
 
 If you want to run any of the other scripts in `package.json`, you simply use `make run [COMMAND]` to execute the command using Docker.
+
+### Troubleshooting
+You may get this error when attempting to run `make run start`:
+```
+/app/node_modules/.bin/esbuild: line 1: syntax error: unexpected end of file (expecting ")")
+ERROR: "js:dev" exited with 2.
+```
+If this happens, just run `make run rebuild esbuild` to resolve the issue.
+
+Similarily, if you choose not to use Docker, and you get the following error when attempting to run `npm start`:
+```
+sh: ~/eleventy-starter/node_modules/.bin/esbuild: cannot execute binary file
+```
+...execute `npm rebuild esbuild` to resolve the issue.
 
 ## Make the Template Your Own
 There are some placeholder items in the template that you'll want to update. They include the following:
