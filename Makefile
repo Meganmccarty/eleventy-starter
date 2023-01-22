@@ -1,3 +1,4 @@
+# Adapted from https://nystudio107.com/blog/run-your-node-js-apps-buildchains-via-docker
 TAG?=19.4.0-alpine
 
 build:
