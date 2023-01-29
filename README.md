@@ -5,7 +5,7 @@ This is an Eleventy template that can be used to jumpstart an Eleventy project. 
 This template comes packed with tons of features, including:
 - Some sample pages written in Nunjucks and plain HTML (though you can mix and match other formats like Markdown as well)
 - Configuration for Sass and TailwindCSS; you can choose to use one, the other, or even both together
-- JavaScript and TypeScript support; much like the CSS, you can decide if you want to use one option or both together
+- JavaScript and TypeScript support; like the CSS, you can decide if you want to use one option or both together
 - Support for older browsers with a legacy JavaScript build
 - Linters set up for HTML, CSS, and JavaScript
 - Unit tests (jest) and end-to-end tests (Cypress) configured with some simple examples
@@ -13,6 +13,7 @@ This template comes packed with tons of features, including:
 - CI/CD configured with GitHub Actions
 - Configuration for meeting PWA (progressive web app) requirements
 - A service worker to pre-cache URLs and assets; falls back to the network if something is not in the cache
+- A dynamically-generated sitemap
 - Support for Dependabot so dependencies are kept up-to-date
 - Docker support
 
@@ -22,42 +23,25 @@ While using Docker may seem like overkill for a static-site generator like Eleve
 ## Getting Started
 You can either clone this repo onto your local machine, or click the "Use this template" button to generate a copy of this repo on GitHub (from which you can then clone your newly-created repo).
 
-Once you have a local copy, build the Docker image by running:
+Once you have a local copy, you can build the Docker image and get a container running by executing:
 ```
-make run build
+make build-run
 ```
+Your site should be accessible at http://localhost:8080/. If you want to kill the container, just use `Ctrl-C`. You can restart the container by running `make start`.
 
-Then, install the dependencies:
-```
-make run install
-```
-
-After that, get the Eleventy site up and running by executing:
-```
-make run start
-```
-
-Your site should be accessible at http://localhost:8080/
-
-If you want to run any of the other scripts in `package.json`, you simply use `make run [COMMAND]` to execute the command using Docker.
+If you want to run any of the other scripts in `package.json`, you simply use `make exec npm run [COMMAND]` to execute the command using Docker.
 
 ### Troubleshooting
-You may get this error when attempting to run `make run start`:
-```
-/app/node_modules/.bin/esbuild: line 1: syntax error: unexpected end of file (expecting ")")
-ERROR: "js:dev" exited with 2.
-```
-If this happens, just run `make run rebuild esbuild` to resolve the issue.
-
-Similarily, if you choose not to use Docker, and you get the following error when attempting to run `npm start`:
+If not using Docker, you may get this error when attempting to run `npm start`:
 ```
 sh: ~/eleventy-starter/node_modules/.bin/esbuild: cannot execute binary file
 ```
-...execute `npm rebuild esbuild` to resolve the issue.
+Just run `npm rebuild esbuild` to resolve the issue. (The Makefile already includes this command, so this error shouldn't occur when using Docker.)
 
 ## Make the Template Your Own
 There are some placeholder items in the template that you'll want to update. They include the following:
 - Your name, app name, and license in `package.json` (located in the root directory)
+- Your site's name and URL in `site.json` (located under `src/pages/_data`)
 - Your site's information and color theme in the `manifest.json` file (located under `src/public`)
 - Several icons, including `favicon.png`, `favicon.svg`, `maskable_icon.png`, and `splash_icon.png` (located under `src/public`)
 
