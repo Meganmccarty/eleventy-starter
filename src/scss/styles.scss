@@ -5,3 +5,30 @@ h1 {
 p {
     color: darkmagenta;
 }
+
+a {
+    color: green;
+    text-decoration: underline;
+
+    &:focus-visible,
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+nav > ul {
+    display: flex;
+    flex-direction: row;
+
+    li {
+        margin: 0 20px;
+    }
+
+    li:first-child {
+        margin: 0 20px 0 0;
+    }
+}
+
+footer > p {
+    color: black;
+}
